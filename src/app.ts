@@ -638,7 +638,12 @@ export class ClaudeClientApp {
 
           const formatted = formatClaudeMessageForFeishu(message);
           if (formatted) {
-            responseBuffer += (responseBuffer ? '\n\n' : '') + formatted;
+            // 如果当前只是临时状态提示，替换它而不是追加
+            if (responseBuffer === '🔄 正在连接 Claude...') {
+              responseBuffer = formatted;
+            } else {
+              responseBuffer += (responseBuffer ? '\n\n' : '') + formatted;
+            }
             // 实时更新飞书消息，链接到更新链
             lastUpdatePromise = lastUpdatePromise.then(() => updateFeishuMessage());
           }

@@ -6,13 +6,33 @@
 
 Claude Client bridges the Feishu messaging platform with the Claude Code CLI, enabling you to interact with Claude AI remotely from your phone or any device with Feishu installed.
 
+## 📸 Preview
+
+### Real-time Streaming Progress Updates
+Messages refresh continuously, showing Claude's execution in real-time - tool calls, file operations at a glance:
+
+![Streaming Progress Demo](./imgs/streaming-demo.jpg)
+
+### Interactive Help Card
+Send `?` to display a beautiful card with one-click access to hot directories:
+
+![Help Card Example](./imgs/card.jpg)
+
 ## 🌟 Highlights
 
 ### 📱 Code from Anywhere
 Write code, refactor files, or debug issues from your phone while commuting, in meetings, or away from your desk. No VPN or remote desktop needed - just Feishu.
 
-### 🔄 Know Your Task Status
-Real-time progress updates every 30 seconds with PID monitoring. Always know if your long-running task is still processing or has completed, even on mobile.
+### 🔄 Real-time Streaming Progress Updates
+**Core Highlight**: Feishu messages update continuously, showing Claude's execution in real-time!
+- **Dynamic Message Updates**: The same message refreshes in real-time, displaying current execution status
+- **Tool Call Visualization**: Clearly shows which tools Claude is using (📁 Read file, 🔧 Execute command, 🔍 Search code, etc.)
+- **Progress Awareness**: Even for long-running tasks, users can see progress in real-time - no more anxious waiting
+- **Smart Truncation**: Extra-long messages are automatically truncated to ensure successful delivery
+
+### 🖥️ Cross-Platform Compatibility
+- **Windows Optimized**: Solves Windows stdout pipe buffering issues through a file polling mechanism
+- **Unified Experience**: Consistent experience across Windows, macOS, and Linux
 
 ### 🔥 Smart Directory Management
 - **Hot Directories**: Quick access to your 5 most recent projects
@@ -179,12 +199,6 @@ npm run dev
 ```
 
 ## 📖 Usage
-
-### Interactive Card Preview
-
-Send `?` to display the help card with hot directories and action buttons:
-
-![Help Card Example](./imgs/card.jpg)
 
 ### Basic Interaction
 
