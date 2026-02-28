@@ -11,12 +11,12 @@ Claude Client bridges the Feishu messaging platform with the Claude Code CLI, en
 ### Real-time Streaming Progress Updates
 Messages refresh continuously, showing Claude's execution in real-time - tool calls, file operations at a glance:
 
-![Streaming Progress Demo](./imgs/streaming-demo.jpg)
+<img src="./imgs/streaming-demo.jpg" width="300" alt="Streaming Progress Demo">
 
 ### Interactive Help Card
 Send `?` to display a beautiful card with one-click access to hot directories:
 
-![Help Card Example](./imgs/card.jpg)
+<img src="./imgs/card.jpg" width="300" alt="Help Card Example">
 
 ## 🌟 Highlights
 
