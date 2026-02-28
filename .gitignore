@@ -33,3 +33,4 @@ coverage/
 # Misc
 *.tgz
 .npm
+.Claude.md
