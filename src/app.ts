@@ -572,40 +572,40 @@ export class ClaudeClientApp {
       progressMessageId = progressResult.messageId;
 
       // 更新飞书消息的节流函数
-      const updateFeishuMessage = async (force: boolean = false) => {
+      const updateFeishuMessage = (force: boolean = false): Promise<void> => {
         const now = Date.now();
         if (!force && now - lastUpdateTime < UPDATE_INTERVAL) {
-          if (!updatePending) {
-            updatePending = true;
+          // 返回一个延迟执行的 Promise，确保调用者可以等待
+          return new Promise((resolve) => {
+            const delay = UPDATE_INTERVAL - (now - lastUpdateTime);
             setTimeout(() => {
-              updateFeishuMessage(true);
-              updatePending = false;
-            }, UPDATE_INTERVAL - (now - lastUpdateTime));
-          }
-          return;
+              updateFeishuMessage(true).then(resolve);
+            }, delay);
+          });
         }
         lastUpdateTime = now;
 
-        if (!progressMessageId || !responseBuffer) return;
+        if (!progressMessageId || !responseBuffer) return Promise.resolve();
 
         const statusText = truncateMessage(responseBuffer);
-        try {
-          await this.feishuClient.updateMessageToMarkdown(progressMessageId, statusText);
-          logger.info('Feishu progress updated', { length: statusText.length });
-        } catch (updateError) {
-          // 更新失败（可能达到编辑次数上限），发送新消息
-          logger.warn('Progress update failed, sending new message');
-          try {
-            const newMsg = await this.feishuClient.sendMarkdownMessage(
-              ctx.chatId,
-              statusText,
-              { replyToMessageId: ctx.messageId }
-            );
-            progressMessageId = newMsg.messageId;
-          } catch {
-            // 忽略发送失败
-          }
-        }
+        return this.feishuClient.updateMessageToMarkdown(progressMessageId, statusText)
+          .then(() => {
+            logger.info('Feishu progress updated', { length: statusText.length });
+          })
+          .catch(async (updateError) => {
+            // 更新失败（可能达到编辑次数上限），发送新消息
+            logger.warn('Progress update failed, sending new message');
+            try {
+              const newMsg = await this.feishuClient.sendMarkdownMessage(
+                ctx.chatId,
+                statusText,
+                { replyToMessageId: ctx.messageId }
+              );
+              progressMessageId = newMsg.messageId;
+            } catch {
+              // 忽略发送失败
+            }
+          });
       };
 
       // 用于追踪最后一次更新的 Promise，确保更新按顺序完成
