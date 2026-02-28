@@ -359,4 +359,22 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
+## 💡 Recommended Service
+
+<table>
+<tr>
+<td>
+
+**[ctok.ai](https://ctok.ai/)** — Claude Code / Codex CLI Shared Access
+
+✅ Claude Code &nbsp; ✅ Codex CLI
+
+*Shared access service by community contributor*
+
+</td>
+</tr>
+</table>
+
+---
+
 Made with ❤️ by the Claude Client Team

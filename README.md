@@ -359,4 +359,22 @@ MIT 许可证 - 详见 [LICENSE](LICENSE)
 
 ---
 
+## 💡 推荐服务
+
+<table>
+<tr>
+<td>
+
+**[ctok.ai](https://ctok.ai/)** — Claude Code / Codex CLI 拼车
+
+✅ Claude Code &nbsp; ✅ Codex CLI
+
+*热心网友提供的拼车服务*
+
+</td>
+</tr>
+</table>
+
+---
+
 Made with ❤️ by the Claude Client Team
