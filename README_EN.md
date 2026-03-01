@@ -101,7 +101,13 @@ HOST=0.0.0.0
 
 # Optional: Claude API Key (usually managed by CLI)
 ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
+
+# Optional: Specify Claude CLI path (WSL users may need this)
+# CLAUDE_CODE_PATH=/home/xxx/.nvm/versions/node/v24.x.x/bin/claude
 ```
+
+> **Note for WSL users**: If running the project in WSL, you may need to set `CLAUDE_CODE_PATH`.
+> Use `which claude` to find the full path and configure it in `.env`.
 
 ### 3. Install Claude Code CLI
 

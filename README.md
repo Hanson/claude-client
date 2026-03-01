@@ -101,7 +101,13 @@ HOST=0.0.0.0
 
 # 可选：Claude API Key（通常由 CLI 管理）
 ANTHROPIC_API_KEY=sk-ant-xxxxxxxx
+
+# 可选：指定 Claude CLI 路径（WSL 用户可能需要）
+# CLAUDE_CODE_PATH=/home/xxx/.nvm/versions/node/v24.x.x/bin/claude
 ```
+
+> **WSL 用户注意**：如果在 WSL 中运行项目，可能需要设置 `CLAUDE_CODE_PATH` 环境变量。
+> 使用 `which claude` 查看完整路径，然后配置到 `.env` 中。
 
 ### 3. 安装 Claude Code CLI
 
